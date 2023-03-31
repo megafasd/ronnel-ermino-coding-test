@@ -15,3 +15,7 @@ use App\Http\Controllers\ProductController;
 */
 
 Route::apiResource('products', ProductController::class)->only(['index', 'show', 'store']);
+
+Route::group(['prefix' => 'v1', 'namespace' => 'App\Http\Controllers\Api\V1'], function(){
+    Route::apiResource('product', ProductController::class);
+});

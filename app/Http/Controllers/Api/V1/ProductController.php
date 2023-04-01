@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Http\Resources\V1\ProductResource;
 use App\Http\Resources\V1\ProductCollection;
+use App\Services\V1\ProductQuery;
 
 class ProductController extends Controller
 {
@@ -15,9 +16,18 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return new ProductCollection(Product::paginate());
+        $filter = new ProductQuery();
+        $queryItems = $filter->transform($request);
+
+        if(count($queryItems) == 0){
+            return new ProductCollection(Product::paginate());
+            
+        }else{
+            return Product::where($queryItems)->get();
+        }
+
     }
 
     /**

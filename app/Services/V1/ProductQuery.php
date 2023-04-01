@@ -6,7 +6,8 @@ use Illuminate\Http\Request;
 
 class ProductQuery{
     protected $safeParms =[
-        'name' => ['eq']
+        'name' => ['eq'],
+        'id' => ['eq']
     ];
 
     protected $operatorMap = [

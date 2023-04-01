@@ -25,7 +25,6 @@ class StoreProductRequest extends FormRequest
     public function rules()
     {
         return [
-            'id' => ['required'],
             'name' => ['required', 'max:255'],
             'description' => ['required'],
             'price' => ['required', 'regex:/^\d*(\.\d{1,2})?$/'],

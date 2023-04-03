@@ -114,4 +114,19 @@ For bonus points, answer the question below by updating this file.
 Q: The management requested a new feature where in the fictional e-commerce app must have a "featured products" section.
 How would you go about implementing this feature in the backend?
 
-A: _Put your answer here_
+A: I can think of two options. First, a boolean column can be added to the products table. Second, a new table can be created for the featured products with the id of the products as foreign key. The final choice will come down to what's more efficient and less resource consuming depending on unaccounted variables such as database size.
+
+## Setting up the project
+1. Use XAMPP, and put the project inside htdocs folder inside XAMPP directory. Start Apache and MySQL to launch the project.
+2. There is an option to populate the database through phpmyadmin after running the laravel project.
+3. Use Postman to test the APIs.
+4. APIs: 
+      Products List: Returns names and ids of products.
+      URL: http://127.0.0.1:8000/api/v1/product
+
+      Product Details: Returns details of a product through name or id query.
+      URL: http://127.0.0.1:8000/api/v1/product?name[eq]=aircon
+           http://127.0.0.1:8000/api/v1/product?id[eq]=1
+      
+      Create Product: creates new product through post.
+      URL: http://127.0.0.1:8000/api/v1/product
